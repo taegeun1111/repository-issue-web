@@ -1,14 +1,14 @@
 import React from 'react';
 import {OWNER, REPO} from "../../services/issueInstance";
-import {HeaderStyled} from "./Header.styled";
+import {StyledHeader} from "./StyledHeader";
 
 const Header = () => {
   return (
-    <HeaderStyled>
+    <StyledHeader>
       <span className="header-title">
         {OWNER} / {REPO}
       </span>
-    </HeaderStyled>
+    </StyledHeader>
   );
 };
 

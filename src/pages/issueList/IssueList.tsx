@@ -1,7 +1,8 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import {getIssue} from "../../services/issueInstance";
 import {Issue} from "../../services/Issue";
-import {BsChatSquareDots} from "react-icons/bs"
+import IssueElement from "./IssueElement";
+import {StyledIssueList} from "./IssueList.styled";
 
 
 const IssueList = () => {
@@ -20,9 +21,9 @@ const IssueList = () => {
   }, [page]);
 
 
-  useEffect(()=>{
+  useEffect(() => {
     fetchIssues()
-  },[fetchIssues])
+  }, [fetchIssues])
 
   const handleScroll = () => {
     if (
@@ -40,23 +41,11 @@ const IssueList = () => {
   }, []);
 
   return (
-    <div>
-      <div className="issue-list">
-        {issues.map((issue, index) => (
-          <div key={index} className="issue">
-            <div className="issue-number">{issue.number}</div>
-            <div className="issue-title"><a href={`/issues/${issue.number}`}>{issue.title}</a></div>
-            <div className="issue-author">
-              작성자: {issue.user.login}
-              {/*<img src={issue.user.avatar_url} alt={`${issue.user.login}'s avatar`} width="50" height="50" />*/}
-            </div>
-            <div className="issue-date">작성일: {new Date(issue.created_at).toLocaleDateString()}</div>
-            <div className="issue-comments"><BsChatSquareDots /> {issue.comments}</div>
-            {(index + 1) % 5 === 0 && <a className="ad" href={"https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fuserweb%2Flogo_wanted_black.png&w=110&q=100"}>link to</a>}
-          </div>
-        ))}
-      </div>
-    </div>
+    <StyledIssueList>
+      {issues.map((issue, index) => (
+        <IssueElement index={index} issue={issue}/>
+      ))}
+    </StyledIssueList>
   );
 };
 
