@@ -7,7 +7,7 @@ export const StyledHeader = styled.header`
   height: 15%;
   
   .header-title{
-    font-weight: 600;
-    font-size: 1.4rem;
+    font-weight:700;
+    font-size: 1.7rem;
   }
 `

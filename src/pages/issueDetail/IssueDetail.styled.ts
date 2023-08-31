@@ -1,7 +1,18 @@
 import { styled } from "styled-components";
 
-export const StyledIssueDetail = styled.div`
+interface StyledProps {
+  loading : boolean;
+}
+
+export const StyledIssueDetail = styled.div<StyledProps>`
   padding: 0 20px;
+
+  ${({loading})=> loading && `
+  height:65%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  `}
 
   .detail-wrapper {
     display: flex;
