@@ -44,10 +44,10 @@ const IssueDetail = () => {
               <div className="issue-title">{IssueDetail.title}</div>
               <div className="issue-info">
                 <div className="issue-author">
-                  작성자:{IssueDetail.user.login}
+                  작성자 : {IssueDetail.user.login}
                 </div>
                 <div className="issue-date">
-                  작성일:{new Date(IssueDetail.created_at).toLocaleDateString()}
+                  작성일 : {new Date(IssueDetail.created_at).toLocaleDateString('ko-KR')}
                 </div>
                 <div className="issue-comments">
                   <BsChatSquareDots className="issue-comments-icon" />{" "}

@@ -23,8 +23,8 @@ const IssueElement = ({index, issue}: Props) => {
         <div className="issue-number">#{issue.number}</div>
         <div className="issue-title">{issue.title}</div>
         <section className="issue-info">
-          <div className="issue-author">작성자:{issue.user.login}</div>
-          <div className="issue-date">작성일:{new Date(issue.created_at).toLocaleDateString()}</div>
+          <div className="issue-author">작성자 : {issue.user.login}</div>
+          <div className="issue-date">작성일 : {new Date(issue.created_at).toLocaleDateString('ko-KR')}</div>
           <div className="issue-comments">
             <BsChatSquareDots className="issue-comments-icon"/> {issue.comments}
           </div>

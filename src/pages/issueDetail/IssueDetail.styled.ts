@@ -17,6 +17,7 @@ export const StyledIssueDetail = styled.div`
   }
   .detail-title-wrapper {
     position: relative;
+    width: 100%;
   }
 
   .issue-number {
