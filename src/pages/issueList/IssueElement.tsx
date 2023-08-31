@@ -9,14 +9,6 @@ interface Props {
   issue: Issue
 }
 
-{/*<img src={issue.user.avatar_url} alt={`${issue.user.login}'s avatar`} width="50" height="50" />*/
-}
-{/*<div className="issue-title"><a href={`/issues/${issue.number}`}>{issue.title}</a></div>*/
-}
-
-
-
-
 const IssueElement = ({index, issue}: Props) => {
   const navigate = useNavigate();
 
