@@ -3,11 +3,11 @@ import {Octokit} from "octokit";
 export const OWNER = "facebook";
 export const REPO = "react";
 
-export async function getIssue(page:number) {
-  const octokit = new Octokit({
-    auth: process.env.REST_API_TOKEN_KEY
-  })
+const octokit = new Octokit({
+  auth: process.env.REST_API_TOKEN_KEY
+})
 
+export async function getIssue(page:number) {
   const response = await octokit.request(`GET /repos/{owner}/{repo}/issues?state=open&sort=comments&page=${page}`, {
     owner: OWNER,
     repo: REPO,
@@ -15,6 +15,16 @@ export async function getIssue(page:number) {
       'X-GitHub-Api-Version': '2022-11-28'
     }
   });
+  return response
+}
 
+export async function getDetail(issueNumber:number) {
+  const response = await octokit.request(`GET /repos/{owner}/{repo}/issues/${issueNumber}`, {
+    owner: OWNER,
+    repo: REPO,
+    headers: {
+      'X-GitHub-Api-Version': '2022-11-28'
+    }
+  });
   return response
 }

@@ -5,6 +5,7 @@ export const StyledIssueElement = styled.li`
   padding: 15px 0;
   border-bottom: 1px solid rgb(150,150,150);
   position: relative;
+  cursor: pointer;
 
   .issue-number {
     font-size: 0.9rem;

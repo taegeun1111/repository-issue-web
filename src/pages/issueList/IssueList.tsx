@@ -43,7 +43,7 @@ const IssueList = () => {
   return (
     <StyledIssueList>
       {issues.map((issue, index) => (
-        <IssueElement index={index} issue={issue}/>
+        <IssueElement key={index} index={index} issue={issue}/>
       ))}
     </StyledIssueList>
   );

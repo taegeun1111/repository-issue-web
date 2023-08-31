@@ -1,10 +1,11 @@
 import React from 'react';
 import {BsChatSquareDots} from "react-icons/bs";
+import { useNavigate } from 'react-router-dom';
 import {Issue} from "../../services/Issue";
 import {StyledIssueElement} from "./IssueElement.styled";
 
 interface Props {
-  index: number;
+  index: number
   issue: Issue
 }
 
@@ -14,10 +15,18 @@ interface Props {
 }
 
 
+
+
 const IssueElement = ({index, issue}: Props) => {
+  const navigate = useNavigate();
+
+  const detailNavigatorHandler = () => {
+    navigate(`/issues/${issue.number}`)
+  }
+
   return (
     <>
-      <StyledIssueElement key={index}>
+      <StyledIssueElement onClick={detailNavigatorHandler}>
         <div className="issue-number">#{issue.number}</div>
         <div className="issue-title">{issue.title}</div>
         <section className="issue-info">
@@ -30,7 +39,8 @@ const IssueElement = ({index, issue}: Props) => {
 
       </StyledIssueElement>
       {(index + 1) % 5 === 0 &&
-        <a className="ad" href={"https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fuserweb%2Flogo_wanted_black.png&w=110&q=100"}>
+        <a className="ad"
+           href={"https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fuserweb%2Flogo_wanted_black.png&w=110&q=100"}>
           link to
         </a>}
     </>
