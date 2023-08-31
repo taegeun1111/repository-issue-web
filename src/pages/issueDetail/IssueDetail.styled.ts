@@ -5,6 +5,7 @@ export const StyledIssueDetail = styled.div`
 
   .detail-wrapper {
     display: flex;
+    align-items: end;
     padding-bottom: 10px;
     border-bottom: 1px solid rgb(150,150,150);
   }
@@ -12,7 +13,7 @@ export const StyledIssueDetail = styled.div`
     width: 50px;
     height: 50px;
     margin-right: 10px;
-    padding-top: 25px;
+    /* padding-top: 25px; */
   }
   .detail-title-wrapper {
     position: relative;
@@ -57,6 +58,6 @@ export const StyledIssueDetail = styled.div`
   }
 
   .detail-body{
-    padding-top: 10px;
+    padding: 10px 0;
   }
 `;

@@ -4,6 +4,9 @@ import { BsChatSquareDots } from "react-icons/bs";
 import { getDetail } from "../../services/issueInstance";
 import { StyledIssueDetail } from "./IssueDetail.styled";
 import { Issue } from "../../services/Issue";
+import ReactMarkdown from "react-markdown";
+import MarkdownPreview from '@uiw/react-markdown-preview';
+
 
 const IssueDetail = () => {
   const { issueNumber } = useParams(); // 파라미터 이름을 정확히 지정해야 함
@@ -41,7 +44,9 @@ const IssueDetail = () => {
               <div className="issue-number">#{IssueDetail.number}</div>
               <div className="issue-title">{IssueDetail.title}</div>
               <div className="issue-info">
-                <div className="issue-author">작성자:{IssueDetail.user.login}</div>
+                <div className="issue-author">
+                  작성자:{IssueDetail.user.login}
+                </div>
                 <div className="issue-date">
                   작성일:{new Date(IssueDetail.created_at).toLocaleDateString()}
                 </div>
@@ -53,7 +58,12 @@ const IssueDetail = () => {
             </section>
           </div>
 
-          <div className="detail-body">{IssueDetail.body}</div>
+          {IssueDetail && (
+            <div className="detail-body">
+              <MarkdownPreview source={IssueDetail.body}/>
+              {/* <ReactMarkdown>{IssueDetail.body}</ReactMarkdown> */}
+            </div>
+          )}
         </>
       )}
     </StyledIssueDetail>
