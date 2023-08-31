@@ -4,7 +4,6 @@ import { BsChatSquareDots } from "react-icons/bs";
 import { getDetail } from "../../services/issueInstance";
 import { StyledIssueDetail } from "./IssueDetail.styled";
 import { Issue } from "../../services/Issue";
-import ReactMarkdown from "react-markdown";
 import MarkdownPreview from '@uiw/react-markdown-preview';
 
 
@@ -61,7 +60,6 @@ const IssueDetail = () => {
           {IssueDetail && (
             <div className="detail-body">
               <MarkdownPreview source={IssueDetail.body}/>
-              {/* <ReactMarkdown>{IssueDetail.body}</ReactMarkdown> */}
             </div>
           )}
         </>

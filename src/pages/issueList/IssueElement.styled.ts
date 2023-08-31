@@ -1,11 +1,15 @@
-import {styled} from "styled-components";
+import { styled } from "styled-components";
 
 export const StyledIssueElement = styled.li`
   width: 100%;
   padding: 15px 0;
-  border-bottom: 1px solid rgb(150,150,150);
+  border-bottom: 1px solid rgb(150, 150, 150);
   position: relative;
   cursor: pointer;
+  
+  &:nth-of-type(5n){
+    border: none;
+  }
 
   .issue-number {
     font-size: 0.9rem;
@@ -20,18 +24,18 @@ export const StyledIssueElement = styled.li`
     line-height: 1.2;
     text-decoration: none;
   }
-  
-  .issue-info{
+
+  .issue-info {
     display: flex;
     font-size: 0.85rem;
     padding: 8px 0 0;
   }
-  
-  .issue-author{
+
+  .issue-author {
     padding-right: 10px;
   }
-  
-  .issue-comments{
+
+  .issue-comments {
     position: absolute;
     font-size: 0.8rem;
     right: 0;
@@ -40,8 +44,14 @@ export const StyledIssueElement = styled.li`
     align-items: center;
     justify-content: center;
   }
-  
-  .issue-comments-icon{
+
+  .issue-comments-icon {
     padding-right: 3px;
   }
-`
+`;
+
+export const StyledAd = styled.a`
+  .adImg {
+    width: 100%;
+  }
+`;

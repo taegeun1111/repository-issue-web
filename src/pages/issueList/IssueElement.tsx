@@ -2,7 +2,8 @@ import React from 'react';
 import {BsChatSquareDots} from "react-icons/bs";
 import { useNavigate } from 'react-router-dom';
 import {Issue} from "../../services/Issue";
-import {StyledIssueElement} from "./IssueElement.styled";
+import {StyledAd, StyledIssueElement} from "./IssueElement.styled";
+import adImg from "../../assets/20210419-wanted.jpg"
 
 interface Props {
   index: number
@@ -30,11 +31,12 @@ const IssueElement = ({index, issue}: Props) => {
         </section>
 
       </StyledIssueElement>
+      
       {(index + 1) % 5 === 0 &&
-        <a className="ad"
+        <StyledAd
            href={"https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fuserweb%2Flogo_wanted_black.png&w=110&q=100"}>
-          link to
-        </a>}
+            <img src={adImg} alt="AdImg" className='adImg'/>
+        </StyledAd>}
     </>
   );
 };
