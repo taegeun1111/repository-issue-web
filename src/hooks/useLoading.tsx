@@ -8,7 +8,9 @@ export const useLoading = () => {
     }
 
     const finishLoading = () =>{
-        setLoading(false);
+        setTimeout(()=>{
+            setLoading(false)
+        },500)
     }
 
     useEffect(()=>{

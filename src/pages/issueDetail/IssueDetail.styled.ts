@@ -1,24 +1,37 @@
 import { styled } from "styled-components";
 
 interface StyledProps {
-  loading : boolean;
+  loading: boolean;
 }
 
 export const StyledIssueDetail = styled.div<StyledProps>`
   padding: 0 20px;
+  position: relative;
 
-  ${({loading})=> loading && `
+  ${({ loading }) =>
+    loading &&
+    `
   height:65%;
   display: flex;
   align-items: center;
   justify-content: center;
   `}
 
+  .goBack-icon {
+    font-weight: 200;
+    font-size: 1.2rem;
+    position: absolute;
+    top: -60px;
+    left: 30px;
+    cursor: pointer;
+  }
+
   .detail-wrapper {
     display: flex;
-    align-items: end;
+    flex-direction:column;
+    /* align-items: end; */
     padding-bottom: 10px;
-    border-bottom: 1px solid rgb(150,150,150);
+    border-bottom: 1px solid rgb(150, 150, 150);
   }
   .detail-profile {
     width: 50px;
@@ -44,18 +57,18 @@ export const StyledIssueDetail = styled.div<StyledProps>`
     line-height: 1.2;
     text-decoration: none;
   }
-  
-  .issue-info{
+
+  .issue-info {
     display: flex;
     font-size: 0.8rem;
     padding: 8px 0 0;
   }
-  
-  .issue-author{
+
+  .issue-author {
     padding-right: 10px;
   }
-  
-  .issue-comments{
+
+  .issue-comments {
     position: absolute;
     font-size: 0.8rem;
     right: 0;
@@ -64,12 +77,19 @@ export const StyledIssueDetail = styled.div<StyledProps>`
     align-items: center;
     justify-content: center;
   }
-  
-  .issue-comments-icon{
+
+  .issue-comments-icon {
     padding-right: 3px;
   }
 
-  .detail-body{
+  .detail-body {
     padding: 10px 0;
+  }
+
+  .test{
+    font-size:100px;
+    width: 100px;
+    height: 100px;
+    background-color:black;
   }
 `;

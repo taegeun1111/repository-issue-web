@@ -13,7 +13,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   #root {
-    background-color: #fafafa;
+    background-color: white;
     width: 20vw;
     height: 65vh;
     position: relative;
