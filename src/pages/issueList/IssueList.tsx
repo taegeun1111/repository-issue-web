@@ -42,21 +42,22 @@ const IssueList = () => {
   }, [fetchIssues]);
 
   const handleRootScroll = () => {
-    if (rootElement) {
       if (
-        rootElement.scrollTop + rootElement.clientHeight ===
+        rootElement && rootElement.scrollTop + rootElement.clientHeight ===
         rootElement.scrollHeight
       ) {
+        console.log('tt');
         setInfiniteScroll(false);
         setTimeout(() => {
           setPage((prevPage) => prevPage + 1);
           setInfiniteScroll(true);
         }, 500);
       }
-    }
+    
   };
 
   useEffect(() => {
+    
     if (rootElement) {
       setInfiniteScroll(true);
       rootElement.addEventListener("scroll", handleRootScroll);
