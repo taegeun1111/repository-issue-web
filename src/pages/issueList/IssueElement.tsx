@@ -29,7 +29,6 @@ const IssueElement = ({index, issue}: Props) => {
             <BsChatSquareDots className="issue-comments-icon"/> {issue.comments}
           </div>
         </section>
-
       </StyledIssueElement>
       
       {(index + 1) % 5 === 0 &&

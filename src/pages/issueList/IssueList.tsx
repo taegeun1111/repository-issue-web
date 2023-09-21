@@ -14,7 +14,6 @@ const IssueList = () => {
 
   const fetchIssues = useCallback(async (page: number) => {
     try {
-      console.log("fetchIssues의 page값 : ", page);
       const res = await getIssue(page);
       if (res.status === 200) {
         setIssues((prevState) => [...prevState, ...res.data]);
