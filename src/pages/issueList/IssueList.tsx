@@ -1,15 +1,15 @@
-import React, { useCallback, useEffect, useState } from "react";
-import { getIssue } from "../../services/issueInstance";
-import { Issue } from "../../services/Issue";
+import React, {useCallback, useEffect, useState} from "react";
+import {getIssue} from "../../services/issueInstance";
+import {Issue} from "../../services/Issue";
 import IssueElement from "./IssueElement";
-import { StyledIssueList } from "./IssueList.styled";
-import { useLoading } from "../../hooks/useLoading";
-import { BeatLoader } from "react-spinners";
+import {StyledIssueList} from "./IssueList.styled";
+import {useLoading} from "../../hooks/useLoading";
+import {BeatLoader} from "react-spinners";
 
 const IssueList = () => {
   const [issues, setIssues] = useState<Issue[]>([]);
   const [page, setPage] = useState(1);
-  const { loading, startLoading, finishLoading } = useLoading();
+  const {loading, startLoading, finishLoading} = useLoading();
   const rootElement = document.getElementById("root");
   const [infiniteScroll, setInfiniteScroll] = useState(false);
 
@@ -34,30 +34,39 @@ const IssueList = () => {
         finishLoading();
       } catch (error) {
         console.error("Error fetching issues:", error);
-        finishLoading(); // 에러 발생 시에도 로딩 상태를 종료합니다.
+        finishLoading();
       }
     } else {
       fetchIssues();
     }
   }, [fetchIssues]);
 
-  const handleRootScroll = () => {
-      if (
-        rootElement && rootElement.scrollTop + rootElement.clientHeight ===
-        rootElement.scrollHeight
-      ) {
-        console.log('tt');
-        setInfiniteScroll(false);
-        setTimeout(() => {
-          setPage((prevPage) => prevPage + 1);
-          setInfiniteScroll(true);
-        }, 500);
-      }
-    
+  const debounce = <T extends (...args: any[]) => void>(
+    callback: T,
+    limit: number = 300
+  ) => {
+    let timeout: NodeJS.Timeout;
+
+    return (...args: Parameters<T>) => {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        callback.apply(this, args);
+      }, limit);
+    };
   };
 
+  const handleRootScroll = debounce(() => {
+    if (
+      rootElement &&
+      rootElement.scrollTop + rootElement.clientHeight >= rootElement.scrollHeight
+    ) {
+      setTimeout(() => {
+        setPage((prevPage) => prevPage + 1);
+      }, 500);
+    }
+  });
+
   useEffect(() => {
-    
     if (rootElement) {
       setInfiniteScroll(true);
       rootElement.addEventListener("scroll", handleRootScroll);
@@ -70,7 +79,7 @@ const IssueList = () => {
   return (
     <StyledIssueList loading={loading}>
       {loading ? (
-        <BeatLoader color="#0059cd" className="loadingBar" />
+        <BeatLoader color="#0059cd" className="loadingBar"/>
       ) : (
         issues.map((issue, index) => (
           <IssueElement
@@ -80,7 +89,7 @@ const IssueList = () => {
           />
         ))
       )}
-      {!infiniteScroll && <BeatLoader color="#0059cd" className="loadingBar" />}
+      <BeatLoader color="#0059cd" className="loadingBar"/>
     </StyledIssueList>
   );
 };
