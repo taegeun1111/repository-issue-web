@@ -7,7 +7,6 @@ import Layout from "./components/Layout/Layout";
 function App() {
   return (
     <>
-      {/*<Header/>*/}
       <Routes>
         <Route element={<Layout/>}>
           <Route path={"/"} element={<IssueList/>}/>

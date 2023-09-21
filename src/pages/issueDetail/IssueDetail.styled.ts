@@ -1,22 +1,9 @@
 import { styled } from "styled-components";
 
-interface StyledProps {
-  loading: boolean;
-}
-
-export const StyledIssueDetail = styled.div<StyledProps>`
+export const StyledIssueDetail = styled.div`
   padding: 0 20px;
   position: relative;
-
-  ${({ loading }) =>
-    loading &&
-    `
-  height:65%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  `}
-
+  
   .goBack-icon {
     font-weight: 200;
     font-size: 1.2rem;
@@ -29,7 +16,6 @@ export const StyledIssueDetail = styled.div<StyledProps>`
   .detail-wrapper {
     display: flex;
     flex-direction:column;
-    /* align-items: end; */
     padding-bottom: 10px;
     border-bottom: 1px solid rgb(150, 150, 150);
   }
@@ -37,7 +23,6 @@ export const StyledIssueDetail = styled.div<StyledProps>`
     width: 50px;
     height: 50px;
     margin-right: 10px;
-    /* padding-top: 25px; */
   }
   .detail-title-wrapper {
     position: relative;

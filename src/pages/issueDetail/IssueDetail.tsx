@@ -1,27 +1,23 @@
-import React, { useCallback, useEffect, useState, Suspense } from "react";
-import { Await, useNavigate, useParams } from "react-router-dom";
-import { BsChatSquareDots } from "react-icons/bs";
-import { getDetail } from "../../apis/issueInstance";
-import { StyledIssueDetail } from "./IssueDetail.styled";
-import { Issue } from "../../types/Issue";
-import { useLoading } from "../../hooks/useLoading";
-import { BeatLoader } from "react-spinners";
-import { HiOutlineArrowLeft } from "react-icons/hi";
+import React, {useCallback, useEffect, useState, Suspense} from "react";
+import {useParams} from "react-router-dom";
+import {getDetail} from "../../apis/issueInstance";
+import {StyledIssueDetail} from "./IssueDetail.styled";
+import {Issue} from "../../types/Issue";
+import {BeatLoader} from "react-spinners";
 import IssueDetailElement from "./IssueDetailElement";
 
 const IssueDetail = () => {
-  const { issueNumber } = useParams();
+  const {issueNumber} = useParams();
   const [IssueDetail, setIssueDetail] = useState<Issue | undefined>(undefined);
-  const { loading, startLoading, finishLoading } = useLoading();
+  const [isLoading, setIsLoading] = useState(true);
 
   const fetchDetail = useCallback(async () => {
     try {
       if (issueNumber) {
         const res = await getDetail(+issueNumber);
         if (res.status === 200) {
-          startLoading();
           setIssueDetail(res.data);
-          finishLoading();
+          setIsLoading(false);
         }
       }
     } catch (error) {
@@ -33,13 +29,11 @@ const IssueDetail = () => {
     fetchDetail();
   }, [fetchDetail]);
 
+  if (isLoading) return <BeatLoader color="#0059cd" className="loadingBar"/>;
+
   return (
-    <StyledIssueDetail loading={loading}>
-      {loading ? (
-        <BeatLoader color="#0059cd" className="loadingBar" />
-      ) : (
-        IssueDetail && <IssueDetailElement IssueDetail={IssueDetail} />
-      )}
+    <StyledIssueDetail>
+      {IssueDetail && <IssueDetailElement IssueDetail={IssueDetail}/>}
     </StyledIssueDetail>
   );
 };
