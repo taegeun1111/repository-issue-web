@@ -1,5 +1,5 @@
 import {Octokit} from "octokit";
-import {OWNER, REPO, API_VERSION} from "../constants/constants";
+import {API_VERSION, OWNER, REPO} from "../constants/constants";
 
 const octokit = new Octokit({
   auth: process.env.REST_API_TOKEN_KEY,

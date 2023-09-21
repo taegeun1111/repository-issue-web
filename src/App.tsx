@@ -1,17 +1,18 @@
 import React from 'react';
 import {Route, Routes} from "react-router-dom";
 import IssueList from "./pages/issueList/IssueList";
-import Header from "./pages/header/Header";
-import {getIssue} from "./apis/issueInstance";
 import IssueDetail from './pages/issueDetail/IssueDetail';
+import Layout from "./components/Layout/Layout";
 
 function App() {
   return (
     <>
-      <Header/>
+      {/*<Header/>*/}
       <Routes>
-        <Route path={"/"} element={<IssueList/>}/>
-        <Route path={"/issues/:issueNumber"} element={<IssueDetail/>}/>
+        <Route element={<Layout/>}>
+          <Route path={"/"} element={<IssueList/>}/>
+          <Route path={"/issues/:issueNumber"} element={<IssueDetail/>}/>
+        </Route>
       </Routes>
     </>
   );
