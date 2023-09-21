@@ -1,7 +1,7 @@
 import React from 'react';
 import {BsChatSquareDots} from "react-icons/bs";
 import { useNavigate } from 'react-router-dom';
-import {Issue} from "../../services/Issue";
+import {Issue} from "../../types/Issue";
 import {StyledAd, StyledIssueElement} from "./IssueElement.styled";
 import adImg from "../../assets/20210419-wanted.jpg"
 

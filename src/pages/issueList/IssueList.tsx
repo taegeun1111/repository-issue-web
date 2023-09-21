@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { getIssue } from "../../services/issueInstance";
-import { Issue } from "../../services/Issue";
+import { getIssue } from "../../apis/issueInstance";
+import { Issue } from "../../types/Issue";
 import IssueElement from "./IssueElement";
 import { StyledIssueList } from "./IssueList.styled";
 import { useLoading } from "../../hooks/useLoading";

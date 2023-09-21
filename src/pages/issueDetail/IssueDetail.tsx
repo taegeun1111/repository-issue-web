@@ -1,9 +1,9 @@
 import React, { useCallback, useEffect, useState, Suspense } from "react";
 import { Await, useNavigate, useParams } from "react-router-dom";
 import { BsChatSquareDots } from "react-icons/bs";
-import { getDetail } from "../../services/issueInstance";
+import { getDetail } from "../../apis/issueInstance";
 import { StyledIssueDetail } from "./IssueDetail.styled";
-import { Issue } from "../../services/Issue";
+import { Issue } from "../../types/Issue";
 import { useLoading } from "../../hooks/useLoading";
 import { BeatLoader } from "react-spinners";
 import { HiOutlineArrowLeft } from "react-icons/hi";

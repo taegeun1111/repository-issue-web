@@ -1,6 +1,6 @@
 import React from "react";
 import { HiOutlineArrowLeft } from "react-icons/hi";
-import { Issue } from "../../services/Issue";
+import { Issue } from "../../types/Issue";
 import { useNavigate } from "react-router-dom";
 import MarkdownPreview from "@uiw/react-markdown-preview";
 import { BsChatSquareDots } from "react-icons/bs";

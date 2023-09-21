@@ -1,5 +1,5 @@
 import React from 'react';
-import {OWNER, REPO} from "../../services/issueInstance";
+import {OWNER, REPO} from "../../apis/issueInstance";
 import {StyledHeader} from "./Header.styled";
 
 const Header = () => {
