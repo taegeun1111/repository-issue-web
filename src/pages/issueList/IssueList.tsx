@@ -76,19 +76,17 @@ const IssueList = () => {
     }
   }, []);
 
+  if (loading) return <BeatLoader color="#0059cd" className="loadingBar"/>
+
   return (
     <StyledIssueList loading={loading}>
-      {loading ? (
-        <BeatLoader color="#0059cd" className="loadingBar"/>
-      ) : (
-        issues.map((issue, index) => (
+      {issues.map((issue, index) => (
           <IssueElement
             key={index}
             index={index}
             issue={issue}
           />
-        ))
-      )}
+        ))}
       <BeatLoader color="#0059cd" className="loadingBar"/>
     </StyledIssueList>
   );
